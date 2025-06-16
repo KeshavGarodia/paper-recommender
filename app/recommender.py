@@ -1,5 +1,3 @@
-# app/recommender.py
-
 import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
@@ -14,13 +12,13 @@ def load_data(csv_path, embedding_path):
 
 def get_user_embedding(text, model_name=MODEL_NAME):
     model = SentenceTransformer(model_name)
-    return model.encode([text])[0]  # single vector
+    return model.encode([text])[0]
 
 def recommend_papers(user_vector, paper_vectors, df, top_k=5):
     sims = cosine_similarity([user_vector], paper_vectors)[0]
     top_indices = sims.argsort()[::-1][:top_k]
 
-    print(f"\n🔎 Top {top_k} Similar Papers:\n")
+    print(f"\nTop {top_k} Similar Papers:\n")
     for i, idx in enumerate(top_indices):
         print(f"{i+1}. {df.iloc[idx]['title']}")
         print(f"   📅 Published: {df.iloc[idx]['published']}")
