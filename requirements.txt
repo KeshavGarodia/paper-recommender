@@ -1,0 +1,6 @@
+streamlit
+feedparser
+pandas
+numpy
+scikit-learn
+sentence-transformers
