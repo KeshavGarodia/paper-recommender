@@ -27,8 +27,8 @@ Built with:
 
 ## 🔧 How to Run It
 
-### 1. Clone this repo
-
 ```bash
 git clone https://github.com/KeshavGarodia/paper-recommender.git
 cd paper-recommender
+pip install -r requirements.txt
+streamlit run app/ui.py
